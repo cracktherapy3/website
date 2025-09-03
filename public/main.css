@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Yarndings+12+Charted&display=swap');
+body {
+  background-image: url(/images/yuu.png), url(/images/ss035.gif);
+  background-position: 95% 100%, top left;
+  background-size: 15%;
+  background-repeat: no-repeat, repeat;
+  background-attachment: fixed, fixed;
+  color: white;
+}
+a {
+  color: white;
+}
+
+@font-face {
+    font-family: 'Dreamer TM';
+    src:  url('/DreamerTM-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+.flex {
+  display: flex;
+  margin: auto;
+  padding: 10px;
+  gap: 10px;
+  width: 82%;
+}
+.header {
+  border: 5px solid #333399;
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+.item {
+  border: 5px solid #333399;
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  width: 85%;
+  height: 200vh;
+  margin: auto;
+  margin-top: 20px;
+}
+.item2 {
+  border: 5px solid #333399;
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  width: 30%;
+  height: 200vh;
+  margin-top: 20px;
+}
+h1, h2, h3, h4, h6, h6 {
+  margin-left: 2vh;
+  text-align: left;
+}
+.yarndings-12-charted-regular {
+  font-family: "Yarndings 12 Charted", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a:has(img) {
+  text-decoration: none;
+}
