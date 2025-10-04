@@ -212,39 +212,39 @@
           frameborder="0" title="Status.Cafe Status"></iframe>
       </div>
       <p>random cool video (may not work half the time)</p>
-        <div id="player"></div>
+      <div id="player"></div>
 
-  <script>
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
+      <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(tag);
 
-    var player;
-    // pick a random start index between 0 and 50 (adjust for your playlist length)
-    var startIndex = Math.floor(Math.random() * 50);
+        var player;
+        // pick a random start index between 0 and 50 (adjust for your playlist length)
+        var startIndex = Math.floor(Math.random() * 50);
 
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        height: '390',
-        width: '640',
-        playerVars: {
-          listType: 'playlist',
-          list: 'PLr4HkNIxfQyEiqf7R27j6yYI5ewJLWEf7',
-          index: startIndex,
-          autoplay: 1,
-          modestbranding: 1,
-          rel: 0
-        },
-        events: {
-          'onReady': onPlayerReady
+        function onYouTubeIframeAPIReady() {
+          player = new YT.Player('player', {
+            height: '390',
+            width: '640',
+            playerVars: {
+              listType: 'playlist',
+              list: 'PLr4HkNIxfQyEiqf7R27j6yYI5ewJLWEf7',
+              index: startIndex,
+              autoplay: 1,
+              modestbranding: 1,
+              rel: 0
+            },
+            events: {
+              'onReady': onPlayerReady
+            }
+          });
         }
-      });
-    }
 
-    function onPlayerReady(event) {
-      event.target.playVideo();
-    }
-  </script>
+        function onPlayerReady(event) {
+          event.target.playVideo();
+        }
+      </script>
     </div>
     <div class="item2">
       <a href="/"><b>
@@ -256,7 +256,7 @@
       <a href="https://authen.atabook.org"><b>
           <p>guestbook</p>
         </b></a>
-      <a href="https://github.com/authenyo/irissite"><b>
+      <a href="https://github.com/cracktherapy3/website"><b>
           <p>source code</p>
         </b></a>
       <a href="/donate.html"><b>
