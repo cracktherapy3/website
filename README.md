@@ -1,1 +1,1 @@
-im ngl to u gng im so lazy to do a readme itw a  webiste bro918919191.xyz
+im ngl to u gng im so lazy to do a readme itw a  webiste bro918919191.xyz y
