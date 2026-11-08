@@ -349,7 +349,7 @@ strong {
 
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 160px;
+  grid-template-columns: minmax(0, 1fr) max-content; /* Changed 160px to max-content */
   gap: 22px;
   align-items: start;
 }
@@ -714,4 +714,19 @@ strong {
   .dvd-player {
     width: clamp(140px, 46vw, 240px);
   }
+}
+
+.icons {
+  display: flex;     /* Aligns your individual icons horizontally next to each other */
+  flex-wrap: wrap;   /* Drops them to a new line if they run out of space */
+  gap: 10px;         /* Adds uniform spacing between each icon */
+  
+  /* Removed: position, top, right properties completely */
+}
+
+.icons a svg {
+  width: 20px;
+  height: 20px;
+  fill: #491e3c;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
 }
