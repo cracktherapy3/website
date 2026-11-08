@@ -1,0 +1,717 @@
+/* ============================================================
+   918919191.xyz — iris's channel
+   palette: #000001 / #2D1F41 / #5F3E6B / #94608B / #C28BA5
+   ============================================================ */
+
+:root {
+  --void: #000001;
+  --deep: #000001;
+  --mid: #5F3E6B;
+  --mauve: #94608B;
+  --rose: #C28BA5;
+
+  --font-ui: "Times New Roman";
+  --font-display: "Times New Roman";
+  --font-body: "Times New Roman";
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--mauve) var(--void);
+  scrollbar-width: thin;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--rose);
+  background: var(--void);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+::selection {
+  color: var(--void);
+  background: var(--rose);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mid);
+  border: 2px solid var(--void);
+}
+
+:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--rose);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--void);
+  background: var(--rose);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------
+   layout
+   ------------------------------------------------------------ */
+
+.skip {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+  padding: 10px 14px;
+  color: var(--void);
+  background: var(--rose);
+  font-family: var(--font-ui);
+  font-size: 12px;
+}
+
+.skip:focus {
+  top: 14px;
+  left: 14px;
+}
+
+.screen {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 18px 40px;
+}
+
+/* ------------------------------------------------------------
+   station header
+   ------------------------------------------------------------ */
+
+.station-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 7px 10px;
+  border: 1px solid var(--mid);
+  background: var(--deep);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.station-strip .ch {
+  flex: 0 0 auto;
+  padding: 3px 6px;
+  color: var(--void);
+  background: var(--rose);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.network {
+  flex: 1;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.strip-right {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.air {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.air-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rose);
+}
+
+.clock {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.05em;
+}
+
+/* banner */
+
+.banner {
+  position: relative;
+  margin-top: 10px;
+  overflow: hidden;
+  border: 1px solid var(--mid);
+  line-height: 0;
+}
+
+.banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.banner-bug {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 3px 6px;
+  border: 1px solid var(--mid);
+  color: var(--rose);
+  background: var(--void);
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+
+/* masthead */
+
+.masthead {
+  padding: 28px 0 18px;
+  text-align: center;
+}
+
+.wordart {
+  margin: 0;
+  color: var(--rose);
+  background-image: linear-gradient(90deg, var(--rose), var(--mauve));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 72px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+}
+
+.dial {
+  margin: 10px 0 0;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+/* ticker */
+
+.ticker {
+  margin-top: 12px;
+  overflow: hidden;
+  border-top: 1px solid var(--mid);
+  border-bottom: 1px solid var(--mid);
+  background: var(--deep);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 36s linear infinite;
+}
+
+.ticker-track span {
+  padding: 7px 0;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* nav */
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.nav a,
+.btn {
+  display: inline-block;
+  padding: 8px 11px;
+  border: 1px solid var(--mid);
+  color: var(--rose);
+  background: var(--deep);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.nav a:hover,
+.btn:hover {
+  border-color: var(--rose);
+  color: var(--void);
+  background: var(--rose);
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------
+   windows
+   ------------------------------------------------------------ */
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: 18px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.main,
+.sidebar {
+  min-width: 0;
+}
+
+.window {
+  margin-bottom: 18px;
+  border: 1px solid var(--mid);
+  background: var(--deep);
+}
+
+.window-title {
+  margin: 0;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--mid);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.window-title::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  background: var(--mauve);
+  vertical-align: 1px;
+}
+
+.window-body {
+  padding: 16px 18px 18px;
+}
+
+.window-body p {
+  margin: 0 0 12px;
+}
+
+.window-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* about */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px;
+  gap: 22px;
+  align-items: start;
+}
+
+.facts {
+  margin: 0;
+  padding-left: 14px;
+  border-left: 1px solid var(--mid);
+}
+
+.facts dt {
+  margin-top: 10px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.facts dt:first-child {
+  margin-top: 0;
+}
+
+.facts dd {
+  margin: 2px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.quote {
+  margin: 18px 0 0;
+  padding-left: 14px;
+  border-left: 1px solid var(--mid);
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+/* embeds */
+
+.section-note {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.embed {
+  padding: 4px;
+  border: 1px solid var(--mid);
+  background: var(--void);
+}
+
+.embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+
+.embed + .btn {
+  margin-top: 12px;
+}
+
+.btn-small {
+  padding: 7px 9px;
+  font-size: 10px;
+}
+
+/* sponsor */
+
+.sponsor {
+  margin-bottom: 18px;
+  padding: 12px;
+  border: 1px solid var(--mid);
+  background: var(--deep);
+}
+
+.sponsor-label {
+  margin: 0 0 10px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* links */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.links li + li::before {
+  content: "/";
+  margin: 0 9px;
+  color: var(--mid);
+}
+
+.links a {
+  text-decoration: none;
+}
+
+.credit {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ------------------------------------------------------------
+   sidebar
+   ------------------------------------------------------------ */
+
+.sidebar .window-body {
+  padding: 14px;
+}
+
+.signal {
+  text-align: center;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin: 8px 0 12px;
+}
+
+.counter span {
+  padding: 4px 6px 1px;
+  border: 1px solid var(--mid);
+  background: var(--void);
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.signal p {
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* ------------------------------------------------------------
+   screensaver
+   ------------------------------------------------------------ */
+
+.dvd-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: transparent;
+  pointer-events: none;
+}
+
+.dvd-screen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.dvd-player {
+  --dvd-accent: var(--rose);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: clamp(160px, 27vw, 420px);
+  background: var(--void);
+  will-change: transform;
+}
+
+.dvd-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--void);
+}
+
+.dvd-video iframe,
+.dvd-video > div {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+
+/* ------------------------------------------------------------
+   footer
+   ------------------------------------------------------------ */
+
+.footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--mid);
+  text-align: center;
+}
+
+.footer-title {
+  margin: 0 0 10px;
+  color: var(--rose);
+  background-image: linear-gradient(90deg, var(--rose), var(--mauve));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 42px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.footer p {
+  margin: 3px 0;
+  font-size: 12px;
+}
+
+.footer-note {
+  margin-top: 10px !important;
+  font-family: var(--font-ui);
+  font-size: 10px !important;
+  letter-spacing: 0.04em;
+  line-height: 1.9;
+}
+
+/* ------------------------------------------------------------
+   404
+   ------------------------------------------------------------ */
+
+.screen--narrow {
+  max-width: 680px;
+}
+
+.offair .station-strip {
+  margin-bottom: 18px;
+}
+
+.offair .air-dot {
+  background: var(--mid);
+}
+
+.error-body {
+  padding: 30px 20px 36px;
+  text-align: center;
+}
+
+.error-code {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(110px, 24vw, 180px);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.error-body p {
+  margin: 16px 0 0;
+}
+
+.error-body .btn {
+  margin-top: 22px;
+}
+
+/* ------------------------------------------------------------
+   motion
+   ------------------------------------------------------------ */
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ticker {
+    overflow-x: auto;
+  }
+
+  .ticker-track {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   responsive
+   ------------------------------------------------------------ */
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+  }
+
+  .sidebar .window {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .screen {
+    padding: 12px 10px 32px;
+  }
+
+  .station-strip {
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  .network,
+  .clock {
+    display: none;
+  }
+
+  .masthead {
+    padding: 22px 0 14px;
+  }
+
+  .dial {
+    font-size: 10px;
+  }
+
+  .window-body {
+    padding: 14px;
+  }
+
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .sidebar {
+    display: block;
+  }
+
+  .sidebar .window {
+    margin-bottom: 18px;
+  }
+
+  .links li + li::before {
+    margin: 0 6px;
+  }
+
+  .dvd-player {
+    width: clamp(140px, 46vw, 240px);
+  }
+}
