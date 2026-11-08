@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="918">
-  <rect width="64" height="64" fill="#000001"/>
-  <rect x="2" y="2" width="60" height="60" fill="#2D1F41" stroke="#94608B" stroke-width="2"/>
-  <path d="M0 50h64M0 55h64M0 60h64" stroke="#5F3E6B" stroke-width="1" opacity=".6"/>
-  <text x="32" y="40" text-anchor="middle" font-family="Courier New, monospace" font-weight="bold" font-size="23" fill="#C28BA5">918</text>
-  <rect x="10" y="46" width="44" height="2" fill="#94608B"/>
-</svg>
